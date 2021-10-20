@@ -211,7 +211,7 @@ var palindrome = function(string) {
     return true;
   }
 
-  if ((string.length === 2) && (string[0] === string[1])) {
+  if ((string.length === 2) && (string[0].toLowerCase() === string[1].toLowerCase())) {
     return true;
   }
 
@@ -303,6 +303,20 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+  // create result count
+  var resultCount = 0;
+
+  for (var key in obj) {
+    if (obj[key] === value) {
+      resultCount++;
+    }
+
+    if (typeof obj[key] === 'object') {
+      resultCount += countValuesInObj(obj[key], value);
+    }
+  }
+
+  return resultCount;
 };
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
