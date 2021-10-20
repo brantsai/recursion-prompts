@@ -169,7 +169,6 @@ var exponent = function(base, exp) {
   } else {
     return exponent(base, exp + 1) / base;
   }
-
 };
 
 // 8. Determine if a number is a power of two.
@@ -177,6 +176,21 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  // if n is 1 return true
+  if (n === 1) {
+    return true;
+  }
+
+  // base case: 2^1 returns true
+  if (n === 2) {
+    return true;
+  }
+
+  if (n < 2) {
+    return false;
+  }
+
+  return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that reverses a string.
