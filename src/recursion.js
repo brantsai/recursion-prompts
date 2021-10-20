@@ -178,7 +178,7 @@ var exponent = function(base, exp) {
 var powerOfTwo = function(n) {
   // if n is 1 return true
   if (n === 1) {
-    return true;
+    return true;s
   }
 
   // base case: 2^1 returns true
@@ -195,6 +195,13 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  // base case: if string length is 1 return string
+  if (string.length === 1) {
+    return string;
+  }
+
+  var slice = string.slice(1);
+  return reverse(slice) + string[0];
 };
 
 // 10. Write a function that determines if a string is a palindrome.
